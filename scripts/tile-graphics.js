@@ -2,12 +2,11 @@
 
 /* This example simply blits tile graphics to a buffer canvas according to a 1d
 tile map. The buffer canvas is then blitted to the display canvas. */
-
-(function() { "use strict";
+ (function() { "use strict";
 
     /* The display handles everything to do with drawing graphics and resizing the
     screen. The world holds the map and its dimensions. */
-    var display, world;
+    let display, world;
 
     display = {
 
@@ -42,17 +41,17 @@ tile map. The buffer canvas is then blitted to the display canvas. */
 
                 /* We get the value of each tile in the map which corresponds to the tile
                 graphic index in the tile_sheet.image. */
-                var value = world.map[index];
+                let value = world.map[index];
 
                 /* This is the x and y location at which to cut the tile image out of the
                 tile_sheet.image. */
-                var source_x = (value % this.tile_sheet.columns) * this.tile_sheet.tile_width;
-                var source_y = Math.floor(value / this.tile_sheet.columns) * this.tile_sheet.tile_height;
+                let source_x = (value % this.tile_sheet.columns) * this.tile_sheet.tile_width;
+                let source_y = Math.floor(value / this.tile_sheet.columns) * this.tile_sheet.tile_height;
 
                 /* This is the x and y location at which to draw the tile image we are cutting
                 from the tile_sheet.image to the buffer canvas. */
-                var destination_x = (index % world.columns) * this.tile_sheet.tile_width;
-                var destination_y = Math.floor(index / world.columns) * this.tile_sheet.tile_height;
+                let destination_x = (index % world.columns) * this.tile_sheet.tile_width;
+                let destination_y = Math.floor(index / world.columns) * this.tile_sheet.tile_height;
 
                 /* Draw the tile image to the buffer. The width and height of the tile is taken from the tile_sheet object. */
                 this.buffer.drawImage(this.tile_sheet.image, source_x, source_y, this.tile_sheet.tile_width, this.tile_sheet.tile_height, destination_x, destination_y, this.tile_sheet.tile_width, this.tile_sheet.tile_height);
