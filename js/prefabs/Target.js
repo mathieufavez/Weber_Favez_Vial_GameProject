@@ -8,20 +8,24 @@ Bomberman.Target = function (game_state, name, position, properties) {
     
     this.game_state.game.physics.arcade.enable(this);
     this.body.immovable = true;
+
+    this.scale.setTo(0.75);
 };
+
 
 Bomberman.Target.prototype = Object.create(Bomberman.Prefab.prototype);
 Bomberman.Target.prototype.constructor = Bomberman.Target;
 
 Bomberman.Target.prototype.update = function () {
     "use strict";
-    this.game_state.game.physics.arcade.overlap(this, this.game_state.groups.explosions, this.kill, null, this);
+    this.game_state.game.physics.arcade.overlap(this, this.game_state.groups.players, this.collect_item, null, this);
 };
 
-Bomberman.Target.prototype.kill = function () {
+Bomberman.Target.prototype.collect_item = function () {
     "use strict";
+    // by default, an item is destroyed when collected
+    this.kill();
     var goal_position, goal_properties, goal;
-    Phaser.Sprite.prototype.kill.call(this);
     if (this.game_state.groups.targets.countLiving() === 0) {
         // create goal
         goal_position = new Phaser.Point(this.game_state.game.world.width / 2, this.game_state.game.world.height / 2);
