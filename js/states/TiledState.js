@@ -124,7 +124,6 @@ Bomberman.TiledState.prototype.game_over = function () {
     "use strict";
 
     window.open("score.html", "_self");
-    //this.game.state.restart(true, false, this.level_data);
 
 };
 
