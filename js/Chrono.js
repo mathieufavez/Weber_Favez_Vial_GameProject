@@ -11,7 +11,7 @@ function chrono(){
     var msec = diff.getMilliseconds()
     var sec = diff.getSeconds()
     var min = diff.getMinutes()
-    var hr = diff.getHours()-1
+
     if (min < 10){
         min = "0" + min
     }
@@ -24,7 +24,7 @@ function chrono(){
     else if(msec < 100){
         msec = "0" +msec
     }
-    document.getElementById("chronotime").value = hr + ":" + min + ":" + sec + ":" + msec
+    document.getElementById("chronotime").value =  min + ":" + sec + ":" + msec
     timerID = setTimeout("chrono()", 10)
 }
 function chronoStart(){
