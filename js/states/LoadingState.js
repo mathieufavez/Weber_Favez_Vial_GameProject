@@ -39,4 +39,5 @@ Bomberman.LoadingState.prototype.preload = function () {
 Bomberman.LoadingState.prototype.create = function () {
     "use strict";
     this.game.state.start(this.next_state, true, false, this.level_data);
+
 };
