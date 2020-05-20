@@ -108,9 +108,10 @@ Bomberman.Player.prototype.die = function () {
     "use strict";
     // decrease the number of lives
     this.number_of_lives -= 1;
-    if (this.game_state.prefabs.lives.number_of_lives <= 0) {
+    if (this.number_of_lives < 1) {
         // if there are no more lives, it's game over
         this.game_state.game_over();
+
     } else {
         // if there are remaining lives, restart the player position
         this.x = this.initial_position.x;
