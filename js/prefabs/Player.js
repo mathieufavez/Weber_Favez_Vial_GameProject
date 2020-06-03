@@ -131,6 +131,7 @@ Bomberman.Player.prototype.die = function () {
     // decrease the number of lives
     this.number_of_lives -= 1;
     if (this.number_of_lives < 1) {
+        this.kill();
         // if there are no more lives, it's game over
         this.game_state.game_over();
 
