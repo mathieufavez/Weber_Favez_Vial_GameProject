@@ -113,14 +113,17 @@ Bomberman.TiledState.prototype.init_hud = function () {
     lives = new Bomberman.Lives(this, "lives", lives_position, lives_properties);
 };
 
-Bomberman.TiledState.prototype.game_over = function () {
-    "use strict";
-    this.game.state.restart(true, false, this.level_data);
-};
-
 Bomberman.TiledState.prototype.next_level = function () {
     "use strict";
     localStorage.number_of_lives = this.prefabs.player.number_of_lives;
     localStorage.number_of_bombs = this.prefabs.player.number_of_bombs;
     this.game.state.start("BootState", true, false, this.level_data.next_level, "TiledState");
 };
+
+Bomberman.TiledState.prototype.game_over = function () {
+    "use strict";
+
+    window.open("score.html", "_self");
+
+};
+

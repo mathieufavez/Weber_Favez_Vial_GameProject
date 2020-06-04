@@ -22,4 +22,10 @@ Bomberman.Goal.prototype.update = function () {
 Bomberman.Goal.prototype.reach_goal = function () {
     "use strict";
     this.game_state.next_level();
+
 };
+
+Bomberman.Goal.prototype.end = function(){
+    "use strict";
+    this.game_state.end();
+}
