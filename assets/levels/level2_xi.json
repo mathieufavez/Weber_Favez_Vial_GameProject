@@ -8,6 +8,7 @@
     "heart_image": {"type": "image", "source": "assets/images/heart.png"},
     "target_image": {"type": "image", "source": "assets/images/sushi.png"},
     "goal_image": {"type": "image", "source": "assets/images/portal.png"},
+    "final_goal_image": {"type": "image", "source": "assets/images/trophy.ico"},
     "life_item_image": {"type": "image", "source": "assets/images/life_item.png"},
     "bomb_item_image": {"type": "image", "source": "assets/images/bomb_item.png"},
 
@@ -27,5 +28,5 @@
     "key": "level_tilemap",
     "tilesets": ["map_tiles"]
   },
-  "next_level": "assets/levels/level1_xi.json"
+  "last_level" : true
 }

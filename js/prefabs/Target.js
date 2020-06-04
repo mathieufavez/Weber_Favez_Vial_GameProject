@@ -28,8 +28,14 @@ Bomberman.Target.prototype.collect_item = function () {
     var goal_position, goal_properties, goal;
     if (this.game_state.groups.targets.countLiving() === 0) {
         // create goal
+        if (this.game_state.level_data.last_level === true) {
+            goal_position = new Phaser.Point(this.game_state.game.world.width / 2, this.game_state.game.world.height / 2);
+            goal_properties = {texture: "final_goal_image", group: "goals"};
+            goal = new Bomberman.Goal(this.game_state, "goal", goal_position, goal_properties);
+        } else {
         goal_position = new Phaser.Point(this.game_state.game.world.width / 2, this.game_state.game.world.height / 2);
         goal_properties = {texture: "goal_image", group: "goals"};
         goal = new Bomberman.Goal(this.game_state, "goal", goal_position, goal_properties);
+        }
     }
 };

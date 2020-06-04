@@ -16,6 +16,9 @@ Bomberman.Goal.prototype.constructor = Bomberman.Goal;
 
 Bomberman.Goal.prototype.update = function () {
     "use strict";
+    if (this.game_state.level_data.last_level === true)
+        this.game_state.game.physics.arcade.overlap(this, this.game_state.groups.players, this.show_score, null, this);
+
     this.game_state.game.physics.arcade.overlap(this, this.game_state.groups.players, this.reach_goal, null, this);
 };
 
@@ -24,14 +27,8 @@ Bomberman.Goal.prototype.reach_goal = function () {
     this.game_state.next_level();
 
 };
-
-Bomberman.Goal.prototype.reach_final_goal = function () {
+Bomberman.Goal.prototype.show_score = function () {
     "use strict";
     this.game_state.show_score();
-
 };
 
-Bomberman.Goal.prototype.end = function(){
-    "use strict";
-    this.game_state.end();
-}

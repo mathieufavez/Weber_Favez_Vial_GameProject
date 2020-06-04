@@ -106,7 +106,7 @@ Bomberman.TiledState.prototype.create_object = function (object) {
 Bomberman.TiledState.prototype.init_hud = function () {
     "use strict";
     var lives_position, lives_properties, lives;
-    
+
     // create the lives prefab
     lives_position = new Phaser.Point(0.9 * this.game.world.width, 0.07 * this.game.world.height);
     lives_properties = {group: "hud", texture: "heart_image", number_of_lives: 3};
@@ -122,15 +122,11 @@ Bomberman.TiledState.prototype.next_level = function () {
 
 Bomberman.TiledState.prototype.game_over = function () {
     "use strict";
-
     window.open("gameOver.html", "_self");
-
 };
 
 Bomberman.TiledState.prototype.show_score = function () {
     "use strict";
-
     window.open("score.html", "_self");
-
 };
 

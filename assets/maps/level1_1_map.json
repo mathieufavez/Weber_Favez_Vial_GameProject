@@ -56,7 +56,7 @@
                     "number_of_bombs":"1",
                     "number_of_lives":"3",
                     "texture":"player_spritesheet",
-                    "walking_speed":"50"
+                    "walking_speed":"200"
                   },
                  "type":"player",
                  "visible":true,
