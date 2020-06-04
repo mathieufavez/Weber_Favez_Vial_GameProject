@@ -123,6 +123,13 @@ Bomberman.TiledState.prototype.next_level = function () {
 Bomberman.TiledState.prototype.game_over = function () {
     "use strict";
 
+    window.open("gameOver.html", "_self");
+
+};
+
+Bomberman.TiledState.prototype.show_score = function () {
+    "use strict";
+
     window.open("score.html", "_self");
 
 };

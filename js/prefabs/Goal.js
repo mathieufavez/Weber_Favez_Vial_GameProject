@@ -25,6 +25,12 @@ Bomberman.Goal.prototype.reach_goal = function () {
 
 };
 
+Bomberman.Goal.prototype.reach_final_goal = function () {
+    "use strict";
+    this.game_state.show_score();
+
+};
+
 Bomberman.Goal.prototype.end = function(){
     "use strict";
     this.game_state.end();

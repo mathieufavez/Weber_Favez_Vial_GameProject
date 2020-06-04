@@ -4,6 +4,8 @@ var end = 0
 var diff = 0
 var timerID = 0
 window.onload = chronoStart;
+
+
 function chrono(){
     end = new Date()
     diff = end - start
@@ -11,6 +13,7 @@ function chrono(){
     var msec = diff.getMilliseconds()
     var sec = diff.getSeconds()
     var min = diff.getMinutes()
+
 
     if (min < 10){
         min = "0" + min
@@ -33,7 +36,11 @@ function chronoStart(){
     //document.chronoForm.reset.onclick = chronoReset
     start = new Date()
     chrono()
+
 }
+
+
+
 /*
 function chronoContinue(){
     document.chronoForm.startstop.value = "stop!"
