@@ -86,16 +86,26 @@
             }
 
             function drag(ev) {
-                ev.dataTransfer.setData("texte", ev.target.id);
+                switch (ev.target.id) {
+                    case "drag1":
+                        ev.dataTransfer.setData("href", "indexTrump.html");
+                        break;
+                    case "drag2":
+                        ev.dataTransfer.setData("href", "indexPutine.html");
+                        break;
+                    case "drag3":
+                        ev.dataTransfer.setData("href", "indexMerkel.html");
+                        break;
+                    case "drag4":
+                        ev.dataTransfer.setData("href", "indexXi.html");
+                }
             }
 
             function drop(ev) {
                 ev.preventDefault();
-                var data = ev.dataTransfer.getData("texte");
-                ev.target.appendChild(document.getElementById(data));
+                window.location=ev.dataTransfer.getData("href");
             }
         </script>
-
 
 
 </head>
@@ -148,8 +158,6 @@
     <img id="drag3" src="menu/images/angelamerkel.jpg" draggable="true" ondragstart="drag(event)" alt="Angela Merkel" height="250px" width="250px">
     <img id="drag4" src="menu/images/xijinping.jpg" draggable="true" ondragstart="drag(event)" alt="Xi Jinping" height="250px" width="250px">
 </div>
-
-<a href="indexMerkel.html" class="bouton">Continuer</a>
 
 </body>
 </html>
