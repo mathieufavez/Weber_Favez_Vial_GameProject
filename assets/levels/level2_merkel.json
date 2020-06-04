@@ -27,5 +27,5 @@
     "key": "level_tilemap",
     "tilesets": ["map_tiles"]
   },
-  "next_level": "assets/levels/level1.json"
+  "next_level": "assets/levels/level1_merkel.json"
 }
