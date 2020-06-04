@@ -45,11 +45,6 @@ Bomberman.Player.prototype.update = function () {
     
     if (this.cursors.left.isDown && this.body.velocity.x <= 0) {
         // move left
-       /* if(chronoEnable ==false)
-        {
-            chronoEnable = true;
-            Bomberman.Chrono.prototype.start();
-        }*/
         this.body.velocity.x = -this.walking_speed;
         if (this.body.velocity.y === 0) {
             // change the scale, since we have only one animation for left and right directions
@@ -58,11 +53,6 @@ Bomberman.Player.prototype.update = function () {
         }
     } else if (this.cursors.right.isDown && this.body.velocity.x >= 0) {
         // move right
-       /* if(chronoEnable ==false)
-        {
-            chronoEnable = true;
-            Bomberman.Chrono.prototype.start();
-        }*/
         this.body.velocity.x = +this.walking_speed;
         if (this.body.velocity.y === 0) {
             // change the scale, since we have only one animation for left and right directions
@@ -75,22 +65,12 @@ Bomberman.Player.prototype.update = function () {
 
     if (this.cursors.up.isDown && this.body.velocity.y <= 0) {
         // move up
-       /* if(chronoEnable ==false)
-        {
-            chronoEnable = true;
-            Bomberman.Chrono.prototype.start();
-        }*/
         this.body.velocity.y = -this.walking_speed;
         if (this.body.velocity.x === 0) {
             this.animations.play("walking_up");
         }
     } else if (this.cursors.down.isDown && this.body.velocity.y >= 0) {
         // move down
-        /*if(chronoEnable == false)
-        {
-            chronoEnable = true;
-            Bomberman.Chrono.prototype.start();
-        }*/
         this.body.velocity.y = +this.walking_speed;
         if (this.body.velocity.x === 0) {
             this.animations.play("walking_down");
