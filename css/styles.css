@@ -1,0 +1,31 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+h1 {
+    text-align: center;
+}
+
+a.bouton {
+    display: block;
+    width: 200px;
+    height: 50px;
+    /* centrage vertical texte */
+    line-height: 50px;
+    vertical-align: middle;
+    /* centrage horizontal texte */
+    text-align: center;
+    /* font style */
+    font-family: Arial,sans-serif;
+    font-size: medium;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    /* background style */
+    background: black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a.bouton:hover { background: green; color: white; }
