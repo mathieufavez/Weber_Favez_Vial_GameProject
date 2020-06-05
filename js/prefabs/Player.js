@@ -34,8 +34,6 @@ Bomberman.Player.prototype.constructor = Bomberman.Player;
 Bomberman.Player.prototype.update = function () {
     "use strict";
     var colliding_bombs;
-    var chronoEnable = false;
-
 
     this.game_state.game.physics.arcade.collide(this, this.game_state.layers.walls);
     this.game_state.game.physics.arcade.collide(this, this.game_state.layers.blocks);

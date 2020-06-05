@@ -28,9 +28,6 @@ Bomberman.TiledState.prototype.init = function (level_data) {
     var tileset_index;
     this.level_data = level_data;
 
-
-
-
     this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
     this.scale.pageAlignHorizontally = true;
     this.scale.pageAlignVertically = true;
