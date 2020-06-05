@@ -54200,7 +54200,7 @@ Phaser.Cache.prototype = {
     * @param {string} key - Asset key of the json object to retrieve from the Cache.
     * @return {object} The JSON object.
     */
-    getJSON: function (key) {
+    getJSON: function (key, p) {
 
         if (this._json[key])
         {
@@ -56984,7 +56984,16 @@ Phaser.AudioSprite = function (game, key) {
      * JSON audio atlas object.
      * @property {object} config
      */
-    this.config = this.game.cache.getJSON(key + '-audioatlas');
+    this.config = this.game.cache.getJSON(key + '-audioatlas', function (data) {
+        var employee_data = "";
+        $.each(data, function (key, value) {
+            employee_data += "<tr>";
+            employee_data += "<td>" + value.name + "</td>";
+            employee_data += "<td>" + value.score + "</td>";
+            employee_data += "</tr>";
+        });
+        $("#employee_table").append(employee_data);
+    });
 
     /**
      * If a sound is set to auto play, this holds the marker key of it.

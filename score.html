@@ -4,28 +4,85 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/styles.css"/>
     <title>Bomberman | Scores</title>
-    <script src="js/test_scores.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 </head>
-<body>
-<main>
-    <h1>Table of scores</h1>
-    <h1 id="result"></h1>
-    <script>document.getElementById("result").innerHTML = localStorage.getItem("timeScore");</script>
+    <body>
+        <main>
+            <h1>Hall of fame</h1>
+            <h1>Your score :</h1>
+            <h1 id="result"></h1>
+
+            <script>document.getElementById("result").innerHTML = localStorage.getItem("timeScore");</script>
+
+            <label for="name">Nom:</label>
+            <input type="text" id="name"><br>
+
+            <input type="button" id="addButton" value="Ajouter" onClick="AfficherMasquer()" onClick="Masquer()">
 
 
 
-    <label for="name">Nom:</label>
-    <input type="text" id="name"><br>
 
-    <input type="button" id="add" value="Ajouter" >
-    <input type="button" id="display_scores" value="Afficher" ><br>
+            <div class="container" id="divacacher" style="display: none">
+                <div class="table-responsive">
+                    <h1>Scores</h1>
+                    <br/>
+                    <table class="table table-bordered table-striped" id="employee_table">
+                        <tr>
+                            <th>Name</th>
+                            <th>Score</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
 
-    <div id="results"></div>
-    <table id="scores_table"></table>
 
+            <a class="bouton" href="menu.html"> Rejouer </a>
 
-    <a class="bouton" href="menu.html"> Rejouer </a>
-</main>
-</body>
+        </main>
+    </body>
 </html>
+
+<script>
+    $(document).ready(function(){
+        $.getJSON("scores.json", function(data){
+            let employee_data = '';
+            $.each(data, function(key, value){
+                employee_data += '<tr>';
+                employee_data += '<td>' + value.name +'</td>';
+                employee_data += '<td>' + value.score +'</td>';
+                employee_data += '</tr>';
+            });
+            $('#employee_table').append(employee_data);
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    /* Voici la fonction javascript qui change la propriété "display"
+    pour afficher ou non le div selon que ce soit "none" ou "block". */
+
+    function AfficherMasquer()
+    {
+        divInfo = document.getElementById('divacacher');
+
+        if (divInfo.style.display == 'none')
+            divInfo.style.display = 'block';
+        else
+            divInfo.style.display = 'none';
+    }
+
+    function Masquer()
+    {
+        buttonInfo = document.getElementById('addButton');
+        buttonInfo.style.display= 'none';
+    }
+</script>
+
+
+
 
