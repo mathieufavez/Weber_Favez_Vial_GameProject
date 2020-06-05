@@ -19,10 +19,10 @@
 
             <script>document.getElementById("result").innerHTML = localStorage.getItem("timeScore");</script>
 
-            <label for="name">Nom:</label>
+            <label for="name" id="nameLabel">Nom:</label>
             <input type="text" id="name"><br>
 
-            <input type="button" id="addButton" value="Ajouter" onClick="AfficherMasquer()" onClick="Masquer()">
+            <input type="button" id="addButton" value="Ajouter" onClick="AfficherMasquer();Masquer()">
 
 
 
@@ -79,7 +79,11 @@
     function Masquer()
     {
         buttonInfo = document.getElementById('addButton');
-        buttonInfo.style.display= 'none';
+        labelInfo = document.getElementById('nameLabel');
+        nameInfo = document.getElementById('name');
+        buttonInfo.style.display = 'none';
+        labelInfo.style.display = 'none';
+        nameInfo.style.display ='none';
     }
 </script>
 
