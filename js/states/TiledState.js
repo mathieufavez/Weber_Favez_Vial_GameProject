@@ -23,11 +23,15 @@ Bomberman.TiledState.prototype = Object.create(Phaser.State.prototype);
 Bomberman.TiledState.prototype.constructor = Bomberman.TiledState;
 
 Bomberman.TiledState.prototype.init = function (level_data) {
+
     "use strict";
     var tileset_index;
     this.level_data = level_data;
-    
-    this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+
+
+
+
+    this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
     this.scale.pageAlignHorizontally = true;
     this.scale.pageAlignVertically = true;
     
@@ -111,6 +115,12 @@ Bomberman.TiledState.prototype.init_hud = function () {
     lives_position = new Phaser.Point(0.9 * this.game.world.width, 0.07 * this.game.world.height);
     lives_properties = {group: "hud", texture: "heart_image", number_of_lives: 3};
     lives = new Bomberman.Lives(this, "lives", lives_position, lives_properties);
+
+    var chrono, chrono_properties, chrono_position;
+    chrono_position = new Phaser.Point(this.game.world.width/2, this.game.world.height/2)
+    chrono_properties = {group: "hud"};
+    chrono = new Bomberman.Chrono(this, "chrono", chrono_position, chrono_properties);
+
 };
 
 Bomberman.TiledState.prototype.next_level = function () {
@@ -122,7 +132,7 @@ Bomberman.TiledState.prototype.next_level = function () {
 
 Bomberman.TiledState.prototype.game_over = function () {
     "use strict";
-    window.open("gameOver.html", "_self");
+    window.open("gameOver.html");
 };
 
 Bomberman.TiledState.prototype.show_score = function () {
