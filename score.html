@@ -22,10 +22,7 @@
             <label for="name" id="nameLabel">Nom:</label>
             <input type="text" id="name"><br>
 
-            <input type="button" id="addButton" value="Ajouter" onClick="AfficherMasquer();Masquer()">
-
-
-
+            <input type="button" id="addButton" value="Ajouter" onClick="AfficherMasquer();Masquer();AddToJson()">
 
             <div class="container" id="divacacher" style="display: none">
                 <div class="table-responsive">
@@ -63,8 +60,6 @@
 </script>
 
 <script type="text/javascript">
-    /* Voici la fonction javascript qui change la propriété "display"
-    pour afficher ou non le div selon que ce soit "none" ou "block". */
 
     function AfficherMasquer()
     {
@@ -84,6 +79,32 @@
         buttonInfo.style.display = 'none';
         labelInfo.style.display = 'none';
         nameInfo.style.display ='none';
+
+    }
+
+    function AddToJson()
+    {
+        let name = document.getElementById("name").value;
+        let score = document.getElementById("result").innerHTML = localStorage.getItem("timeScore");
+
+        var fs = require('fs');
+        fs.readFile('scores.json', 'utf-8', function(err, data) {
+            if (err) throw err;
+
+            var arrayOfObjects = JSON.parse(data);
+            console.log(arrayOfObjects);
+            arrayOfObjects.push({
+                name: name,
+                score: score
+            });
+
+            console.log(arrayOfObjects);
+
+            fs.writeFile('scores.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err) {
+                if (err) throw err;
+                console.log('Done!');
+            });
+        });
     }
 </script>
 
