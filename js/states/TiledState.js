@@ -137,6 +137,7 @@ Bomberman.TiledState.prototype.game_over = function () {
 
 Bomberman.TiledState.prototype.show_score = function () {
     "use strict";
+    var timeScore = Bomberman.Chrono.prototype.chrono_text;
     window.open("score.html", "_self");
 };
 

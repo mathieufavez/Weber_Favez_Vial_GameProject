@@ -21,52 +21,10 @@ Bomberman.Chrono = function (game_state, name, position, properties) {
 Bomberman.Chrono.prototype = Object.create(Bomberman.Prefab.prototype);
 Bomberman.Chrono.prototype.constructor = Bomberman.Chrono;
 
-/*
-var startTime = 0
-var start = 0
-var end = 0
-var diff = 0
-var timerID = 0
-var chronoTimer
-//window.onload = chronoStart;
-
-
-function chrono(){
-    end = new Date()
-    diff = end - start
-    diff = new Date(diff)
-    var msec = diff.getMilliseconds()
-    var sec = diff.getSeconds()
-    var min = diff.getMinutes()
-
-
-    if (min < 10){
-        min = "0" + min
-    }
-    if (sec < 10){
-        sec = "0" + sec
-    }
-    if(msec < 10){
-        msec = "00" +msec
-    }
-    else if(msec < 100){
-        msec = "0" +msec
-    }
-    chronoTimer = document.getElementById("chronotime").value =  min + ":" + sec + ":" + msec
-    timerID = setTimeout("chrono()", 10)
-}
-function chronoStart(){
-   // document.chronoForm.startstop.value = "stop!"
-   // document.chronoForm.startstop.onclick = chronoStop
-    //document.chronoForm.reset.onclick = chronoReset
-    start = new Date()
-    chrono()
-
-}
-
-function chronoStop() {
-    clearInterval(chronoTimer)
-}*/
-
+Bomberman.Chrono.prototype.update = function () {
+    "use strict";
+    // update to show current number of lives
+    this.chrono_text.text = this.game.time.totalElapsedSeconds().toString();
+};
 
 
