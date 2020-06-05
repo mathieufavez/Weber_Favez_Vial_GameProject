@@ -132,12 +132,14 @@ Bomberman.TiledState.prototype.next_level = function () {
 
 Bomberman.TiledState.prototype.game_over = function () {
     "use strict";
-    window.open("gameOver.html");
+    window.location.replace("gameOver.html");
 };
 
 Bomberman.TiledState.prototype.show_score = function () {
     "use strict";
-    var timeScore = Bomberman.Chrono.prototype.chrono_text;
-    window.open("score.html", "_self");
+
+    var timeScore = this.game.time.totalElapsedSeconds().toString();
+    localStorage.setItem("timeScore",timeScore);
+    window.location.replace("score.html");
 };
 

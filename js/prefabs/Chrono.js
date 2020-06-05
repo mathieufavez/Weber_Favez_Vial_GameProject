@@ -14,7 +14,7 @@ Bomberman.Chrono = function (game_state, name, position, properties) {
     chrono_text_position = new Phaser.Point(this.position.x - 2, this.position.y + 5);
     chrono_text_style = {font: "14px Arial", fill: "#fff"};
     chrono_text_properties = {group: "hud", text: this.game.time.totalElapsedSeconds().toString(), style: chrono_text_style};
-    this.chrono_text = new Bomberman.TextPrefab(this.game_state, "lives_text", chrono_text_position, chrono_text_properties);
+    this.chrono_text = new Bomberman.TextPrefab(this.game_state, "chrono_text", chrono_text_position, chrono_text_properties);
     this.chrono_text.anchor.setTo(0.5);
 };
 
@@ -26,5 +26,6 @@ Bomberman.Chrono.prototype.update = function () {
     // update to show current number of lives
     this.chrono_text.text = this.game.time.totalElapsedSeconds().toString();
 };
+
 
 
