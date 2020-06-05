@@ -108,6 +108,8 @@ Bomberman.Player.prototype.drop_bomb = function () {
 
 Bomberman.Player.prototype.die = function () {
     "use strict";
+    this.x = this.initial_position.x;
+    this.y = this.initial_position.y;
     // decrease the number of lives
     this.number_of_lives -= 1;
     if (this.number_of_lives < 1) {
@@ -115,9 +117,5 @@ Bomberman.Player.prototype.die = function () {
         // if there are no more lives, it's game over
         this.game_state.game_over();
 
-    } else {
-        // if there are remaining lives, restart the player position
-        this.x = this.initial_position.x;
-        this.y = this.initial_position.y;
     }
 };
