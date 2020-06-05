@@ -46,6 +46,29 @@
                 left: 0;
             }
 
+            a.bouton {
+                display: block;
+                width: 200px;
+                height: 50px;
+                /* centrage vertical texte */
+                line-height: 50px;
+                vertical-align: middle;
+                /* centrage horizontal texte */
+                text-align: center;
+                /* font style */
+                font-family: Arial,sans-serif;
+                font-size: medium;
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+                /* background style */
+                background: black;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            a.bouton:hover { background: green; color: white; }
+
         </style>
 
         <script>
@@ -127,5 +150,6 @@
     <img id="drag4" src="menu/images/xijinping.jpg" draggable="true" ondragstart="drag(event)" alt="Xi Jinping" height="250px" width="250px">
 </div>
 
+<a class="bouton" href="regles.html">Voir les règles</a>
 </body>
 </html>
