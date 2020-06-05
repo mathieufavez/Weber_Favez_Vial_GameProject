@@ -12,83 +12,11 @@
             margin: 0px;
             background-color: black;
         }
-
-        /*
-                  .chronometre{
-                      margin: auto ;
-                      width: 300px;
-                      text-align: center;
-                  }
-
-                  .tim{
-                      margin: auto;
-                      width: 300px;
-                      border: 1px solid rgba(0,0,0,0.5);
-                      padding:5px 0;
-                      text-align: center;
-                      font-size: 1.5em;
-                      color:white;
-                      margin-bottom: 10px;
-
-
-                  }
-
-                  button{
-                      background: #3498db;
-                      color: #fff;
-                      width: 70px;
-                      border-radius: 5px;
-                      line-height: 1.5em;
-                      border: none;
-                      margin-bottom:10px;
-                  }
-
-                  */
-        #tr {
-            background-color: Transparent;
-            background-repeat:no-repeat;
-            border: none;
-            overflow: hidden;
-
-        }
-
-        #chronotime{
-            margin: auto ;
-            width: 300px;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        #formchrono{
-            margin: auto ;
-            width: 300px;
-            text-align: center;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-
     </style>
+
 </head>
 
 <body>
-<!--
-<div class="chronometre">
-    <div class="tim">
-        <span >0 min</span> :
-        <span >0 s</span> :
-        <span >0 ms</span>
-
-    </div>
-</div>
-!-->
-
-<form name="chronoForm" id="formchrono">
-    <input type="text" name="chronotime" id="chronotime" value="0:0:0" onload="chronoStart()" />
-    <!-- <input type="button" name="reset" value="reset!" onClick="chronoReset()" />!-->
-
-</form>
-
-
 
 <script type="text/javascript" src="js/phaser.js"></script>
 <script src="js/prefabs/Chrono.js"></script>
@@ -111,6 +39,7 @@
 <script src="js/prefabs/LifeItem.js"></script>
 <script src="js/prefabs/BombItem.js"></script>
 <script src="js/prefabs/Lives.js"></script>
+<script src="js/prefabs/Chrono.js"></script>
 
 <script type="text/javascript" src="js/mainTrump.js"></script>
 </body>
