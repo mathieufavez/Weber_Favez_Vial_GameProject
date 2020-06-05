@@ -117,7 +117,7 @@ Bomberman.TiledState.prototype.init_hud = function () {
     lives = new Bomberman.Lives(this, "lives", lives_position, lives_properties);
 
     var chrono, chrono_properties, chrono_position;
-    chrono_position = new Phaser.Point(this.game.world.width/2, this.game.world.height/2)
+    chrono_position = new Phaser.Point(this.game.world.width/2, 4)
     chrono_properties = {group: "hud"};
     chrono = new Bomberman.Chrono(this, "chrono", chrono_position, chrono_properties);
 
