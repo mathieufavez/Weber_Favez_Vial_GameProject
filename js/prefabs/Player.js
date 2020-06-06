@@ -23,8 +23,8 @@ Bomberman.Player = function (game_state, name, position, properties) {
     
     this.initial_position = new Phaser.Point(this.x, this.y);
     
-    this.number_of_lives = localStorage.number_of_lives || +properties.number_of_lives;
-    this.number_of_bombs = localStorage.number_of_bombs || +properties.number_of_bombs;
+    this.number_of_lives = sessionStorage.number_of_lives || +properties.number_of_lives;
+    this.number_of_bombs = sessionStorage.number_of_bombs || +properties.number_of_bombs;
     this.current_bomb_index = 0;
 };
 

@@ -43,10 +43,6 @@ Bomberman.TiledState.prototype.init = function (level_data) {
         this.map.addTilesetImage(tileset.name, level_data.map.tilesets[tileset_index]);
         tileset_index += 1;
     }, this);
-    
-    if (this.level_data.first_level) {
-        localStorage.clear();
-    }
 };
 
 Bomberman.TiledState.prototype.create = function () {
@@ -122,8 +118,8 @@ Bomberman.TiledState.prototype.init_hud = function () {
 
 Bomberman.TiledState.prototype.next_level = function () {
     "use strict";
-    localStorage.number_of_lives = this.prefabs.player.number_of_lives;
-    localStorage.number_of_bombs = this.prefabs.player.number_of_bombs;
+    sessionStorage.number_of_lives = this.prefabs.player.number_of_lives;
+    sessionStorage.number_of_bombs = this.prefabs.player.number_of_bombs;
     this.game.state.start("BootState", true, false, this.level_data.next_level, "TiledState");
 };
 
@@ -135,8 +131,12 @@ Bomberman.TiledState.prototype.game_over = function () {
 Bomberman.TiledState.prototype.show_score = function () {
     "use strict";
 
-    var timeScore = this.game.time.totalElapsedSeconds().toString();
-    localStorage.setItem("timeScore",timeScore);
+    /*var timeScore = this.game.time.totalElapsedSeconds().toString();
+    localStorage.setItem("Score",timeScore);
+    window.location.replace("score.html");*/
+    var score = this.game.time.totalElapsedSeconds().toString();
+    sessionStorage.setItem("lastScore", score);
     window.location.replace("score.html");
+    //clearInterval(interval);
 };
 

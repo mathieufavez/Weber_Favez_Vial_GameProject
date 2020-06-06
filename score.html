@@ -17,34 +17,33 @@
             <h1>Your score :</h1>
             <h1 id="result"></h1>
 
-            <script>document.getElementById("result").innerHTML = localStorage.getItem("timeScore");</script>
+            <script>document.getElementById("result").innerHTML = sessionStorage.getItem("lastScore");</script>
 
             <label for="name" id="nameLabel">Nom:</label>
             <input type="text" id="name"><br>
 
-            <input type="button" id="addButton" value="Ajouter" onClick="AfficherMasquer();Masquer();AddToJson()">
+            <input type="button" id="addButton" value="Ajouter" onClick="AfficherMasquer();Masquer()">
 
             <div class="container" id="divacacher" style="display: none">
                 <div class="table-responsive">
                     <h1>Scores</h1>
                     <br/>
-                    <table class="table table-bordered table-striped" id="employee_table">
-                        <tr>
-                            <th>Name</th>
-                            <th>Score</th>
-                        </tr>
+                    <table class="table table-bordered table-striped" id="scores_table">
+                        <td>Name</td>
+                        <td>Score</td>
                     </table>
                 </div>
             </div>
 
 
-            <a class="bouton" href="menu.html"> Rejouer </a>
+            <a class="bouton" href="menu.html" onClick="clearSessionStorage()"> Rejouer </a>
 
         </main>
     </body>
 </html>
 
 <script>
+    /*
     $(document).ready(function(){
         $.getJSON("scores.json", function(data){
             let employee_data = '';
@@ -56,7 +55,9 @@
             });
             $('#employee_table').append(employee_data);
         });
-    });
+    });*/
+
+
 </script>
 
 <script type="text/javascript">
@@ -64,25 +65,51 @@
     function AfficherMasquer()
     {
         divInfo = document.getElementById('divacacher');
+        var Name = document.getElementById("name").value;
+        var Score = sessionStorage.getItem("lastScore");
 
-        if (divInfo.style.display == 'none')
-            divInfo.style.display = 'block';
-        else
-            divInfo.style.display = 'none';
-    }
+        localStorage.setItem(Name,Score);
 
-    function Masquer()
-    {
         buttonInfo = document.getElementById('addButton');
         labelInfo = document.getElementById('nameLabel');
         nameInfo = document.getElementById('name');
         buttonInfo.style.display = 'none';
         labelInfo.style.display = 'none';
         nameInfo.style.display ='none';
+        divInfo.style.display = 'block';
+
+        let htmlTemplate = '';
+        for (let i = 0; i < 3; i++) {
+            htmlTemplate += ` <tr>
+            <td>${localStorage.key(i)}</td>
+            <td>${localStorage.getItem(localStorage.key(i))}</td>
+        </tr>`;
+        }
+        scores_table.innerHTML = htmlTemplate;
+
+
+
+
+
 
     }
 
-    function AddToJson()
+    function ReloadScores()
+    {
+        location.reload();
+
+        divInfo = document.getElementById('divacacher');
+        buttonInfo = document.getElementById('addButton');
+        labelInfo = document.getElementById('nameLabel');
+        nameInfo = document.getElementById('name');
+        buttonInfo.style.display = 'none';
+        labelInfo.style.display = 'none';
+        nameInfo.style.display ='none';
+        divInfo.style.display = 'block';
+
+    }
+
+    /*function AddToJson()
     {
         let name = document.getElementById("name").value;
         let score = document.getElementById("result").innerHTML = localStorage.getItem("timeScore");
@@ -105,6 +132,11 @@
                 console.log('Done!');
             });
         });
+    }*/
+
+    function clearSessionStorage()
+    {
+        sessionStorage.clear();
     }
 </script>
 
