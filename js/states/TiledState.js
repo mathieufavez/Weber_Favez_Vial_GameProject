@@ -28,6 +28,13 @@ Bomberman.TiledState.prototype.init = function (level_data) {
     var tileset_index;
     this.level_data = level_data;
 
+
+    this.music = game.add.audio('music');
+
+    this.music.loop = true;
+
+    this.music.play();
+
     this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
     this.scale.pageAlignHorizontally = true;
     this.scale.pageAlignVertically = true;
@@ -120,16 +127,19 @@ Bomberman.TiledState.prototype.next_level = function () {
     "use strict";
     sessionStorage.number_of_lives = this.prefabs.player.number_of_lives;
     sessionStorage.number_of_bombs = this.prefabs.player.number_of_bombs;
+    this.music.stop();
     this.game.state.start("BootState", true, false, this.level_data.next_level, "TiledState");
 };
 
 Bomberman.TiledState.prototype.game_over = function () {
     "use strict";
+    sessionStorage.clear();
     window.location.replace("gameOver.html");
 };
 
 Bomberman.TiledState.prototype.show_score = function () {
     "use strict";
+
 
     /*var timeScore = this.game.time.totalElapsedSeconds().toString();
     localStorage.setItem("Score",timeScore);

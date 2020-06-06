@@ -24,7 +24,7 @@
 
             <input type="button" id="addButton" value="Ajouter" onClick="AfficherMasquer();Masquer()">
 
-            <div class="container" id="divacacher" style="display: none">
+            <div class="container" id="divacacher" style="display: block">
                 <div class="table-responsive">
                     <h1>Scores</h1>
                     <br/>
@@ -43,6 +43,15 @@
 </html>
 
 <script>
+
+    let htmlTemplate = '';
+    for (let i = localStorage.length-1; i >localStorage.length-4 ; i--) {
+        htmlTemplate += ` <tr>
+            <td>${localStorage.key(i)}</td>
+            <td>${localStorage.getItem(localStorage.key(i))}</td>
+        </tr>`;
+    }
+    scores_table.innerHTML = htmlTemplate;
     /*
     $(document).ready(function(){
         $.getJSON("scores.json", function(data){
@@ -79,7 +88,7 @@
         divInfo.style.display = 'block';
 
         let htmlTemplate = '';
-        for (let i = 0; i < 3; i++) {
+        for (let i = localStorage.length-1; i >localStorage.length-4 ; i--) {
             htmlTemplate += ` <tr>
             <td>${localStorage.key(i)}</td>
             <td>${localStorage.getItem(localStorage.key(i))}</td>

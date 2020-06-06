@@ -33,6 +33,7 @@ Bomberman.LoadingState.prototype.preload = function () {
                 break;
             }
         }
+        this.load.audio('music','assets/sound/gameMusic.wav');
     }
 };
 

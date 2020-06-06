@@ -22,6 +22,7 @@ Bomberman.BootState.prototype.preload = function () {
 Bomberman.BootState.prototype.create = function () {
     "use strict";
     var level_text, level_data;
+
     level_text = this.game.cache.getText("level1");
     level_data = JSON.parse(level_text);
     this.game.state.start("LoadingState", true, false, level_data, this.next_state);
